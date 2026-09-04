@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Project Perfect - creative school projects, ready-to-fill sheets, scrapbooks, posters, paintings, cover pages and DIYs.">
+<title>Project Perfect | Crafting Perfection</title>
+
+<style>
+:root{
+  --pink:#e91e63;
+  --purple:#673ab7;
+  --light:#fff7fb;
+  --dark:#2d2340;
+  --muted:#6d6875;
+  --card:#ffffff;
+}
+*{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--light);color:var(--dark);line-height:1.6}
+a{text-decoration:none;color:inherit}
+header{
+  position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.96);
+  box-shadow:0 2px 15px rgba(60,30,80,.10)
+}
+.nav{
+  max-width:1150px;margin:auto;padding:13px 20px;display:flex;
+  align-items:center;justify-content:space-between;gap:20px
+}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:22px;color:var(--purple)}
+.brand img{width:48px;height:48px;object-fit:cover;border-radius:50%}
+.navlinks{display:flex;gap:22px;list-style:none;font-weight:700}
+.navlinks a:hover{color:var(--pink)}
+.menu{display:none;border:0;background:white;font-size:28px;cursor:pointer}
+
+.hero{
+  max-width:1150px;margin:auto;min-height:680px;padding:70px 20px;
+  display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:50px
+}
+.badge{display:inline-block;background:#f3eaff;color:var(--purple);padding:8px 15px;border-radius:30px;font-weight:700;margin-bottom:18px}
+.hero h1{font-size:clamp(44px,7vw,76px);line-height:1.02;margin-bottom:20px}
+.hero h1 span{color:var(--pink)}
+.hero p{font-size:20px;color:var(--muted);max-width:620px;margin-bottom:28px}
+.buttons{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:13px 22px;border-radius:30px;font-weight:800;border:2px solid var(--pink)}
+.btn.primary{background:var(--pink);color:white}
+.btn.secondary{border-color:var(--purple);color:var(--purple)}
+.btn:hover{transform:translateY(-2px)}
+.hero-logo{
+  width:min(500px,100%);margin:auto;border-radius:28px;
+  box-shadow:0 18px 45px rgba(103,58,183,.18)
+}
+
+section{padding:75px 20px}
+.container{max-width:1150px;margin:auto}
+.section-title{text-align:center;margin-bottom:38px}
+.section-title h2{font-size:38px;color:var(--purple);margin-bottom:8px}
+.section-title p{color:var(--muted)}
+
+.products{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:22px
+}
+.card{
+  background:var(--card);border-radius:22px;padding:25px;
+  box-shadow:0 8px 25px rgba(70,30,90,.08);transition:.25s
+}
+.card:hover{transform:translateY(-5px)}
+.icon{font-size:42px;margin-bottom:12px}
+.card h3{color:var(--pink);font-size:22px;margin-bottom:7px}
+.card p{color:var(--muted);margin-bottom:15px}
+.price{font-size:22px;font-weight:900;color:var(--purple);margin-bottom:15px}
+.order{display:inline-block;background:var(--purple);color:white;padding:10px 17px;border-radius:25px;font-weight:800}
+.order:hover{background:var(--pink)}
+
+.alt{background:#f3efff}
+.features{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.feature{text-align:center;background:white;padding:25px;border-radius:20px;box-shadow:0 5px 18px rgba(70,30,90,.06)}
+.feature div{font-size:35px;margin-bottom:8px}
+.feature h3{color:var(--purple);margin-bottom:5px}
+
+.about{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}
+.about-box{font-size:18px;color:var(--muted)}
+.about-box p{margin-bottom:14px}
+.highlight{background:white;border-radius:25px;padding:30px;box-shadow:0 8px 25px rgba(70,30,90,.08)}
+.highlight h3{color:var(--pink);font-size:25px;margin-bottom:10px}
+
+.contact{
+  background:linear-gradient(135deg,var(--purple),var(--pink));color:white;text-align:center
+}
+.contact h2{font-size:38px;margin-bottom:10px}
+.contact p{font-size:18px;margin:5px 0}
+.contact-buttons{margin-top:22px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.contact-btn{display:inline-block;background:white;color:var(--purple);padding:13px 22px;border-radius:30px;font-weight:900}
+.contact-btn.instagram{color:var(--pink)}
+
+footer{background:#21152f;color:white;text-align:center;padding:25px 15px}
+footer span{color:#ff70a1}
+
+@media(max-width:850px){
+  .products{grid-template-columns:repeat(2,1fr)}
+  .features{grid-template-columns:repeat(2,1fr)}
+  .hero{grid-template-columns:1fr;text-align:center;padding-top:45px}
+  .hero p{margin-left:auto;margin-right:auto}
+  .buttons{justify-content:center}
+  .about{grid-template-columns:1fr}
+}
+@media(max-width:650px){
+  .menu{display:block}
+  .navlinks{
+    display:none;position:absolute;top:74px;left:0;right:0;background:white;
+    padding:18px 20px;flex-direction:column;text-align:center;box-shadow:0 8px 15px rgba(0,0,0,.08)
+  }
+  .navlinks.show{display:flex}
+  .products,.features{grid-template-columns:1fr}
+  section{padding:55px 16px}
+  .section-title h2,.contact h2{font-size:31px}
+  .hero{min-height:auto;padding-bottom:55px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <nav class="nav">
+    <a class="brand" href="#home">
+      <img src="logo.jpg" alt="Project Perfect logo">
+      <span>Project Perfect</span>
+    </a>
+
+    <button class="menu" onclick="toggleMenu()" aria-label="Open menu">☰</button>
+
+    <ul class="navlinks" id="navlinks">
+      <li><a href="#home" onclick="closeMenu()">Home</a></li>
+      <li><a href="#products" onclick="closeMenu()">Products</a></li>
+      <li><a href="#about" onclick="closeMenu()">About</a></li>
+      <li><a href="#why" onclick="closeMenu()">Why Us</a></li>
+      <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <div>
+    <div class="badge">✨ Creative • Beautiful • Perfect</div>
+    <h1>Make Every<br><span>Project Perfect!</span></h1>
+    <p>
+      Welcome to Project Perfect — your creative destination for
+      school projects, ready-to-fill sheets, scrapbooks, posters,
+      paintings, cover pages and DIY creations.
+    </p>
+    <div class="buttons">
+      <a class="btn primary" href="#products">Shop Products</a>
+      <a class="btn secondary" href="#contact">Contact Us</a>
+    </div>
+  </div>
+
+  <img class="hero-logo" src="logo.jpg" alt="Project Perfect - Crafting Perfection">
+</section>
+
+<section id="products">
+  <div class="container">
+    <div class="section-title">
+      <h2>Our Products 🎨</h2>
+      <p>Choose something creative for your next project.</p>
+    </div>
+
+    <div class="products">
+
+      <!-- Change the prices and descriptions below whenever you want -->
+      <article class="card">
+        <div class="icon">📄</div>
+        <h3>Ready-to-Fill Sheets</h3>
+        <p>Beautiful sheets prepared for quick and attractive school projects.</p>
+        <div class="price">Starting ₹XX</div>
+        <a class="order" href="javascript:orderProduct('Ready-to-Fill Sheets')">Order Now</a>
+      </article>
+
+      <article class="card">
+        <div class="icon">📚</div>
+        <h3>Scrapbooks</h3>
+        <p>Creative scrapbook layouts made to make your school work stand out.</p>
+        <div class="price">Starting ₹XX</div>
+        <a class="order" href="javascript:orderProduct('Scrapbook')">Order Now</a>
+      </article>
+
+      <article class="card">
+        <div class="icon">🖼️</div>
+        <h3>Posters</h3>
+        <p>Eye-catching posters for school activities, competitions and projects.</p>
+        <div class="price">Starting ₹XX</div>
+        <a class="order" href="javascript:orderProduct('Poster')">Order Now</a>
+      </article>
+
+      <article class="card">
+        <div class="icon">🎨</div>
+        <h3>Paintings</h3>
+        <p>Colorful handmade-style artwork for creative displays and projects.</p>
+        <div class="price">Starting ₹XX</div>
+        <a class="order" href="javascript:orderProduct('Painting')">Order Now</a>
+      </article>
+
+      <article class="card">
+        <div class="icon">📋</div>
+        <h3>Cover Pages</h3>
+        <p>Stylish project and file cover pages with attractive designs.</p>
+        <div class="price">Starting ₹XX</div>
+        <a class="order" href="javascript:orderProduct('Cover Page')">Order Now</a>
+      </article>
+
+      <article class="card">
+        <div class="icon">✂️</div>
+        <h3>DIY Projects</h3>
+        <p>Fun, creative DIY ideas and ready-made creations for school work.</p>
+        <div class="price">Starting ₹XX</div>
+        <a class="order" href="javascript:orderProduct('DIY Project')">Order Now</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="why">
+  <div class="container">
+    <div class="section-title">
+      <h2>Why Choose Project Perfect? ⭐</h2>
+      <p>Because your project deserves to look amazing.</p>
+    </div>
+
+    <div class="features">
+      <div class="feature"><div>🎨</div><h3>Creative</h3><p>Attractive and unique designs.</p></div>
+      <div class="feature"><div>✨</div><h3>Neat</h3><p>Made with attention to detail.</p></div>
+      <div class="feature"><div>📚</div><h3>School Friendly</h3><p>Perfect for school projects.</p></div>
+      <div class="feature"><div>💜</div><h3>Made With Love</h3><p>Created to make your work special.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container about">
+    <div class="about-box">
+      <div class="section-title" style="text-align:left;margin-bottom:20px">
+        <h2>About Us 💜</h2>
+      </div>
+      <p><b>Project Perfect</b> is a creative craft and school-project business.</p>
+      <p>We create ready-to-fill sheets, scrapbooks, posters, paintings, cover pages and DIY projects.</p>
+      <p>Our aim is simple: <b>make your projects creative, attractive and perfect!</b> ✨</p>
+    </div>
+
+    <div class="highlight">
+      <h3>Crafting Perfection ✂️</h3>
+      <p>
+        Have a school project coming up? Tell us what you need and
+        we'll help you choose the right design.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <h2>Let's Create Something Perfect! 💖</h2>
+    <p>Order or ask us about a custom project.</p>
+    <p><b>Instagram: @projectperfect66</b></p>
+
+    <div class="contact-buttons">
+      <!-- REPLACE 91XXXXXXXXXX WITH YOUR WHATSAPP NUMBER -->
+      <a class="contact-btn" href="https://wa.me/91XXXXXXXXXX" target="_blank">💬 WhatsApp Us</a>
+
+      <!-- REPLACE projectperfect66 IF YOUR INSTAGRAM USERNAME CHANGES -->
+      <a class="contact-btn instagram" href="https://instagram.com/projectperfect66" target="_blank">📸 Instagram</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  © 2026 <span>Project Perfect</span> | Crafting Perfection ✨
+</footer>
+
+<script>
+  function toggleMenu(){
+    document.getElementById("navlinks").classList.toggle("show");
+  }
+
+  function closeMenu(){
+    document.getElementById("navlinks").classList.remove("show");
+  }
+
+  function orderProduct(product){
+    // IMPORTANT: replace the number below with your WhatsApp number.
+    const phone = "91XXXXXXXXXX";
+    const message = "Hello Project Perfect! I want to order: " + product;
+    window.open("https://wa.me/" + phone + "?text=" + encodeURIComponent(message), "_blank");
+  }
+</script>
+
+</body>
+</html>
